@@ -26,29 +26,39 @@ export function Contact() {
     setIsLoading(true)
 
     try {
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        time: new Date().toLocaleString(),
+      }
+
+      console.log("Sending email with params:", templateParams)
+
       const response = await emailjs.send(
         "service_dalyxvf",
         "template_oht38kk",
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        },
+        templateParams,
         "llkPtkcyI87rXSaiL"
       )
+
+      console.log("EmailJS Response:", response)
 
       if (response.status === 200) {
         toast.success("Message sent successfully!")
         setFormData({ name: "", email: "", subject: "", message: "" })
       } else {
-        throw new Error("Failed to send message")
+        throw new Error(`Failed to send message: ${response.text}`)
       }
     } catch (error) {
       console.error("EmailJS Error:", error)
-      toast.error(
-        "Failed to send message. Please try again or contact me directly at soniwathmi@gmail.com"
-      )
+      if (error instanceof Error) {
+        toast.error(`Failed to send message: ${error.message}`)
+      } else {
+        toast.error(
+          "Failed to send message. Please try again or contact me directly at soniwathmi@gmail.com"
+        )
+      }
     } finally {
       setIsLoading(false)
     }
