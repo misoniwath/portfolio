@@ -26,21 +26,29 @@ export function Contact() {
     setIsLoading(true)
 
     try {
-      await emailjs.send(
-        "service_37wnvs5",
+      const response = await emailjs.send(
+        "service_dalyxvf",
         "template_oht38kk",
         {
           from_name: formData.name,
           from_email: formData.email,
+          subject: formData.subject,
           message: formData.message,
         },
         "llkPtkcyI87rXSaiL"
       )
 
-      toast.success("Message sent successfully!")
-      setFormData({ name: "", email: "", subject: "", message: "" })
-    } catch {
-      toast.error("Failed to send message. Please try again.")
+      if (response.status === 200) {
+        toast.success("Message sent successfully!")
+        setFormData({ name: "", email: "", subject: "", message: "" })
+      } else {
+        throw new Error("Failed to send message")
+      }
+    } catch (error) {
+      console.error("EmailJS Error:", error)
+      toast.error(
+        "Failed to send message. Please try again or contact me directly at soniwathmi@gmail.com"
+      )
     } finally {
       setIsLoading(false)
     }
@@ -148,7 +156,7 @@ export function Contact() {
                 </div>
                 <div>
                   <p className="font-medium">Email</p>
-                  <a href="soniwathmi@gmail.com" className="text-muted-foreground hover:text-foreground">
+                  <a href="mailto:soniwathmi@gmail.com" className="text-muted-foreground hover:text-foreground">
                     soniwathmi@gmail.com
                   </a>
                 </div>
