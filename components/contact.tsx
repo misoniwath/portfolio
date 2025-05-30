@@ -27,19 +27,19 @@ export function Contact() {
 
     try {
       await emailjs.send(
-        "service_37wnvs5", // Replace with your EmailJS service ID
-        "template_oht38kk", // Replace with your EmailJS template ID
+        "service_37wnvs5",
+        "template_oht38kk",
         {
           from_name: formData.name,
           from_email: formData.email,
           message: formData.message,
         },
-        "llkPtkcyI87rXSaiL" // Replace with your EmailJS public key
+        "llkPtkcyI87rXSaiL"
       )
 
       toast.success("Message sent successfully!")
       setFormData({ name: "", email: "", subject: "", message: "" })
-    } catch (error) {
+    } catch {
       toast.error("Failed to send message. Please try again.")
     } finally {
       setIsLoading(false)
@@ -62,7 +62,7 @@ export function Contact() {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Get In Touch</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities, collaborations, or just having a chat about technology
+            I&apos;m always open to discussing new opportunities, collaborations, or just having a chat about technology
           </p>
         </div>
 
@@ -135,7 +135,7 @@ export function Contact() {
 
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold mb-6">Let's connect</h3>
+              <h3 className="text-2xl font-semibold mb-6">Let&apos;s connect</h3>
               <p className="text-muted-foreground mb-8">
                 Feel free to reach out through any of these channels. I typically respond within 24 hours.
               </p>
