@@ -36,7 +36,7 @@ export function Contact() {
       console.log("Sending email with params:", templateParams)
 
       const response = await emailjs.send(
-        "service_dalyxvf",
+        "service_5jrovan",
         "template_oht38kk",
         templateParams,
         "llkPtkcyI87rXSaiL"
