@@ -39,7 +39,7 @@ export function Resume() {
               Download Resume (PDF)
             </Button>
 
-            <p className="text-sm text-muted-foreground mt-4">Last updated: December 2024</p>
+            <p className="text-sm text-muted-foreground mt-4">Last updated: June 2025</p>
           </CardContent>
         </Card>
       </div>
