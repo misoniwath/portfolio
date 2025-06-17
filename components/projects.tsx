@@ -58,6 +58,15 @@ export function Projects() {
       demo: undefined,
       image: undefined,
     },
+    {
+      title: "AI Chef with Hugging Face API",
+      description:
+        "An AI-powered chef assistant that uses the Hugging Face API to generate recipes based on user preferences and available ingredients.",
+      tech: ["React", "Node.js", "Hugging Face API"],
+      github: "https://github.com/misoniwath/ai-chef-stu",
+      demo: "https://ai-chef-stu.vercel.app/",
+      image: "/ai_chef.jpg?height=200&width=400",
+    },
   ];
 
   return (
