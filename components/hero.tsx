@@ -58,7 +58,7 @@ export function Hero() {
           >
             <Linkedin className="h-6 w-6" />
           </a>
-          <a href="soniwathmi@gmial.com" className="text-muted-foreground hover:text-foreground transition-colors">
+          <a href="mailto:soniwathmi@gmail.com" className="text-muted-foreground hover:text-foreground transition-colors">
             <Mail className="h-6 w-6" />
           </a>
         </div>
